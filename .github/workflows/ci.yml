@@ -226,7 +226,7 @@ jobs:
           echo "FIRECRACKER=$HOME/.local/bin/firecracker" >> "$GITHUB_ENV"
         if: matrix.arch == 'x86_64'
       - run: |
-          cargo +stable install --locked uhyve
+          cargo +stable install --locked --git https://github.com/hermit-os/uhyve.git --rev ad50e494a62726825e36ac7a6c01bbb83cf501cf uhyve
           echo "UHYVE=$CARGO_HOME/bin/uhyve" >> "$GITHUB_ENV"
         if: matrix.arch == 'x86_64'
       - run: cargo +stable install --locked virtiofsd
